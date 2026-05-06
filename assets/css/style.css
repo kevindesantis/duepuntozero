@@ -875,3 +875,42 @@ button{
 @media (max-width:760px){
   #cantina .feature-card{ min-height:240px; }
 }
+
+
+/* PACCHETTO SENZA IMMAGINI: fallback visuale senza foto */
+.hero:before{
+  background:
+    radial-gradient(circle at 50% 10%, rgba(212,175,55,.20), transparent 36%),
+    linear-gradient(135deg, rgba(0,0,0,.92), rgba(28,18,10,.86), rgba(0,0,0,.94)) !important;
+}
+.feature-card img,
+.modal-img img,
+.thumb img{
+  background:#211b18;
+}
+.image-fallback,
+.thumb .image-fallback{
+  width:100%;
+  height:100%;
+  min-height:86px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  color:var(--gold2);
+  background:linear-gradient(135deg,#17110d,#2b2118);
+  border:1px solid rgba(212,175,55,.22);
+  border-radius:inherit;
+  font-weight:800;
+  font-size:.82rem;
+  padding:8px;
+}
+.feature-card.no-photo{
+  background:linear-gradient(135deg,#17110d,#2b2118);
+}
+.text-brand span{
+  font-family:Georgia,serif;
+  font-size:1.25rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
