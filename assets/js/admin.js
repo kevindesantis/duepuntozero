@@ -3,6 +3,303 @@ let DATA;
 let currentId = null;
 let ADMIN_USER = null;
 
+
+const DPZ_CATEGORY_TRANSLATIONS_AUTO = {
+  en: {
+    'antipasti': 'Starters',
+    'primi': 'First courses',
+    'secondi': 'Main courses',
+    'pizze - le piu richieste': 'Pizzas - Most requested',
+    'pizze - le più richieste': 'Pizzas - Most requested',
+    'pizze - specialita': 'Specialty pizzas',
+    'pizze - specialità': 'Specialty pizzas',
+    'pizze - classiche': 'Classic pizzas',
+    'pizze - bianche': 'White pizzas',
+    'pizze - fredde': 'Cold pizzas',
+    'calzoni': 'Calzones',
+    'rosticceria': 'Fried snacks',
+    'menu speciali': 'Special menus',
+    'menù speciali': 'Special menus',
+    'dessert': 'Desserts',
+    'bevande': 'Drinks',
+    'vini': 'Wines',
+    'birre': 'Beers',
+    'amari e distillati': 'Digestifs & spirits'
+  },
+  es: {
+    'antipasti': 'Entrantes',
+    'primi': 'Primeros platos',
+    'secondi': 'Segundos platos',
+    'pizze - le piu richieste': 'Pizzas - Las más pedidas',
+    'pizze - le più richieste': 'Pizzas - Las más pedidas',
+    'pizze - specialita': 'Pizzas especiales',
+    'pizze - specialità': 'Pizzas especiales',
+    'pizze - classiche': 'Pizzas clásicas',
+    'pizze - bianche': 'Pizzas blancas',
+    'pizze - fredde': 'Pizzas frías',
+    'calzoni': 'Calzones',
+    'rosticceria': 'Fritos y aperitivos',
+    'menu speciali': 'Menús especiales',
+    'menù speciali': 'Menús especiales',
+    'dessert': 'Postres',
+    'bevande': 'Bebidas',
+    'vini': 'Vinos',
+    'birre': 'Cervezas',
+    'amari e distillati': 'Amargos y destilados'
+  }
+};
+
+const DPZ_TRANSLATION_REPLACEMENTS = {
+  en: [
+    ['pizza bianca', 'white pizza'],
+    ['pizza fredda', 'cold pizza'],
+    ['quattro formaggi', 'four cheeses'],
+    ['fior di latte', 'fior di latte mozzarella'],
+    ['mozzarella senza lattosio', 'lactose-free mozzarella'],
+    ['mozzarella di bufala', 'buffalo mozzarella'],
+    ['bufala fresca', 'fresh buffalo mozzarella'],
+    ['pomodorini gialli semidried', 'semi-dried yellow cherry tomatoes'],
+    ['pomodorini gialli', 'yellow cherry tomatoes'],
+    ['pomodorini', 'cherry tomatoes'],
+    ['pomodoro', 'tomato'],
+    ['prosciutto crudo', 'cured ham'],
+    ['prosciutto cotto', 'ham'],
+    ['crudo', 'cured ham'],
+    ['cotto', 'ham'],
+    ['bresaola punta d’anca', 'bresaola punta d’anca'],
+    ["bresaola punta d'anca", 'bresaola punta d’anca'],
+    ['cipolla caramellata', 'caramelized onion'],
+    ['cipolla', 'onion'],
+    ['melanzane fritte', 'fried aubergines'],
+    ['zucchine fritte', 'fried courgettes'],
+    ['melanzane', 'aubergines'],
+    ['zucchine', 'courgettes'],
+    ['crema di pistacchio', 'pistachio cream'],
+    ['granella di pistacchio', 'chopped pistachios'],
+    ['pistacchio', 'pistachio'],
+    ['scaglie di grana', 'Grana flakes'],
+    ['grana', 'Grana cheese'],
+    ['gorgonzola', 'gorgonzola'],
+    ['emmental', 'emmental'],
+    ['formaggio', 'cheese'],
+    ['formaggi', 'cheeses'],
+    ['salame piccante', 'spicy salami'],
+    ['salsiccia', 'sausage'],
+    ['pancetta', 'pancetta'],
+    ['mortadella', 'mortadella'],
+    ['rucola', 'rocket'],
+    ['basilico', 'basil'],
+    ['prezzemolo', 'parsley'],
+    ['aglio', 'garlic'],
+    ['origano', 'oregano'],
+    ['olive nere', 'black olives'],
+    ['olive', 'olives'],
+    ['acciughe', 'anchovies'],
+    ['alici', 'anchovies'],
+    ['tonno', 'tuna'],
+    ['funghi', 'mushrooms'],
+    ['carciofi', 'artichokes'],
+    ['zucca', 'pumpkin'],
+    ['polpo', 'octopus'],
+    ['calamari', 'calamari'],
+    ['gambero rosso', 'red prawn'],
+    ['gamberi', 'prawns'],
+    ['gambero', 'prawn'],
+    ['cozze', 'mussels'],
+    ['vongole', 'clams'],
+    ['cernia', 'grouper'],
+    ['ricciola', 'amberjack'],
+    ['spada', 'swordfish'],
+    ['pesce', 'fish'],
+    ['patatine', 'fries'],
+    ['patate', 'potatoes'],
+    ['croccanti', 'crispy'],
+    ['fritte', 'fried'],
+    ['fritti', 'fried'],
+    ['fritto', 'fried'],
+    ['alla griglia', 'grilled'],
+    ['al forno', 'baked'],
+    ['senza glutine', 'gluten-free'],
+    ['senza lattosio', 'lactose-free'],
+    ['olio evo', 'extra virgin olive oil'],
+    ['olio extra vergine di oliva', 'extra virgin olive oil'],
+    ['olio', 'oil'],
+    ['latte', 'milk'],
+    ['uova', 'eggs'],
+    ['farina', 'flour'],
+    ['pangrattato', 'breadcrumbs'],
+    ['su richiesta', 'on request'],
+    ['disponibile', 'available'],
+    ['rigorosamente preparato dal nostro chef', 'carefully prepared by our chef'],
+    ['ai quattro formaggi', 'with four cheeses'],
+    ['al momento', 'made to order'],
+    ['fresco', 'fresh'],
+    ['fresca', 'fresh'],
+    ['selezionata', 'selected'],
+    ['selezionate', 'selected']
+  ],
+  es: [
+    ['pizza bianca', 'pizza blanca'],
+    ['pizza fredda', 'pizza fría'],
+    ['quattro formaggi', 'cuatro quesos'],
+    ['fior di latte', 'mozzarella fior di latte'],
+    ['mozzarella senza lattosio', 'mozzarella sin lactosa'],
+    ['mozzarella di bufala', 'mozzarella de búfala'],
+    ['bufala fresca', 'búfala fresca'],
+    ['pomodorini gialli semidried', 'tomatitos amarillos semisecos'],
+    ['pomodorini gialli', 'tomatitos amarillos'],
+    ['pomodorini', 'tomatitos'],
+    ['pomodoro', 'tomate'],
+    ['prosciutto crudo', 'jamón crudo'],
+    ['prosciutto cotto', 'jamón cocido'],
+    ['crudo', 'jamón crudo'],
+    ['cotto', 'jamón cocido'],
+    ['bresaola punta d’anca', 'bresaola punta d’anca'],
+    ["bresaola punta d'anca", 'bresaola punta d’anca'],
+    ['cipolla caramellata', 'cebolla caramelizada'],
+    ['cipolla', 'cebolla'],
+    ['melanzane fritte', 'berenjenas fritas'],
+    ['zucchine fritte', 'calabacines fritos'],
+    ['melanzane', 'berenjenas'],
+    ['zucchine', 'calabacines'],
+    ['crema di pistacchio', 'crema de pistacho'],
+    ['granella di pistacchio', 'granillo de pistacho'],
+    ['pistacchio', 'pistacho'],
+    ['scaglie di grana', 'lascas de Grana'],
+    ['grana', 'queso Grana'],
+    ['gorgonzola', 'gorgonzola'],
+    ['emmental', 'emmental'],
+    ['formaggio', 'queso'],
+    ['formaggi', 'quesos'],
+    ['salame piccante', 'salame picante'],
+    ['salsiccia', 'salchicha'],
+    ['pancetta', 'panceta'],
+    ['mortadella', 'mortadela'],
+    ['rucola', 'rúcula'],
+    ['basilico', 'albahaca'],
+    ['prezzemolo', 'perejil'],
+    ['aglio', 'ajo'],
+    ['origano', 'orégano'],
+    ['olive nere', 'aceitunas negras'],
+    ['olive', 'aceitunas'],
+    ['acciughe', 'anchoas'],
+    ['alici', 'anchoas'],
+    ['tonno', 'atún'],
+    ['funghi', 'champiñones'],
+    ['carciofi', 'alcachofas'],
+    ['zucca', 'calabaza'],
+    ['polpo', 'pulpo'],
+    ['calamari', 'calamares'],
+    ['gambero rosso', 'gamba roja'],
+    ['gamberi', 'gambas'],
+    ['gambero', 'gamba'],
+    ['cozze', 'mejillones'],
+    ['vongole', 'almejas'],
+    ['cernia', 'mero'],
+    ['ricciola', 'serviola'],
+    ['spada', 'pez espada'],
+    ['pesce', 'pescado'],
+    ['patatine', 'patatas fritas'],
+    ['patate', 'patatas'],
+    ['croccanti', 'crujientes'],
+    ['fritte', 'fritas'],
+    ['fritti', 'fritos'],
+    ['fritto', 'frito'],
+    ['alla griglia', 'a la parrilla'],
+    ['al forno', 'al horno'],
+    ['senza glutine', 'sin gluten'],
+    ['senza lattosio', 'sin lactosa'],
+    ['olio evo', 'aceite de oliva virgen extra'],
+    ['olio extra vergine di oliva', 'aceite de oliva virgen extra'],
+    ['olio', 'aceite'],
+    ['latte', 'leche'],
+    ['uova', 'huevos'],
+    ['farina', 'harina'],
+    ['pangrattato', 'pan rallado'],
+    ['su richiesta', 'bajo petición'],
+    ['disponibile', 'disponible'],
+    ['rigorosamente preparato dal nostro chef', 'preparado cuidadosamente por nuestro chef'],
+    ['ai quattro formaggi', 'con cuatro quesos'],
+    ['al momento', 'hecho al momento'],
+    ['fresco', 'fresco'],
+    ['fresca', 'fresca'],
+    ['selezionata', 'seleccionada'],
+    ['selezionate', 'seleccionadas']
+  ]
+};
+
+function normalizeTranslationKey(text){
+  return String(text || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g,'')
+    .replace(/\s+/g,' ');
+}
+
+function escapeRegExp(str){
+  return String(str).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function smartTranslateText(text, lang, mode='text'){
+  const original = String(text || '').trim();
+  if(!original) return '';
+
+  const normalizedExact = normalizeTranslationKey(original);
+  if(mode === 'category'){
+    const direct = DPZ_CATEGORY_TRANSLATIONS_AUTO[lang]?.[normalizedExact] || DPZ_CATEGORY_TRANSLATIONS_AUTO[lang]?.[original.toLowerCase()];
+    if(direct) return direct;
+  }
+
+  let out = original;
+  const list = [...(DPZ_TRANSLATION_REPLACEMENTS[lang] || [])].sort((a,b)=>b[0].length-a[0].length);
+  list.forEach(([it, translated]) => {
+    out = out.replace(new RegExp(escapeRegExp(it), 'gi'), translated);
+  });
+
+  if(mode === 'category'){
+    out = out
+      .replace(/\bPizze\b/gi, lang === 'en' ? 'Pizzas' : 'Pizzas')
+      .replace(/\bPizza\b/gi, lang === 'en' ? 'Pizza' : 'Pizza')
+      .replace(/\bSpecialita\b/gi, lang === 'en' ? 'Specialties' : 'Especialidades')
+      .replace(/\bSpecialità\b/gi, lang === 'en' ? 'Specialties' : 'Especialidades')
+      .replace(/\bClassiche\b/gi, lang === 'en' ? 'Classic' : 'Clásicas')
+      .replace(/\bBianche\b/gi, lang === 'en' ? 'White' : 'Blancas')
+      .replace(/\bFredde\b/gi, lang === 'en' ? 'Cold' : 'Frías');
+  }
+
+  return out;
+}
+
+function autoFillTranslations(force=false){
+  const fields = [
+    ['itemName', 'itemNameEn', 'itemNameEs', 'name'],
+    ['itemDescription', 'itemDescriptionEn', 'itemDescriptionEs', 'text'],
+    ['itemIngredients', 'itemIngredientsEn', 'itemIngredientsEs', 'text']
+  ];
+
+  fields.forEach(([itId, enId, esId, mode]) => {
+    const it = document.getElementById(itId);
+    const en = document.getElementById(enId);
+    const es = document.getElementById(esId);
+    if(!it || !en || !es) return;
+
+    const source = it.value.trim();
+    if(!source) return;
+
+    if(force || !en.value.trim()) en.value = smartTranslateText(source, 'en', mode);
+    if(force || !es.value.trim()) es.value = smartTranslateText(source, 'es', mode);
+  });
+
+  if(force) showStatus('<strong>Traduzione automatica compilata.</strong> Puoi comunque correggere manualmente inglese/spagnolo prima di salvare.');
+}
+
+function translateCategoryAuto(nameIt, lang){
+  return smartTranslateText(nameIt, lang, 'category');
+}
+
+
+
 document.addEventListener('DOMContentLoaded', async () => {
   if(typeof refreshViewStats === 'function') refreshViewStats();
 
@@ -66,6 +363,7 @@ async function showAdmin(){
   showStatus('<strong>Supabase collegato.</strong> Le modifiche salvate da qui aggiornano il menù online.');
 
   renderSettings();
+  renderCategoryManager();
   renderAdminList();
   renderForm();
   renderQR();
@@ -95,6 +393,7 @@ async function reloadFromSupabase(){
   DATA = await loadSupabaseData();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(DATA));
   renderSettings();
+  renderCategoryManager();
   renderAdminList();
   if(currentId){
     const fresh = DATA.items.find(i => i.id === currentId);
@@ -136,6 +435,58 @@ async function saveSettings(){
   }
 }
 
+
+function renderCategoryManager(){
+  const el = document.getElementById('categoryList');
+  if(!el) return;
+
+  const full = DATA.categoriesFull || [];
+  el.innerHTML = full.map(c => `<div class="admin-row">
+    <div>
+      <strong>${escapeHtml(c.name_it)}</strong><br>
+      <span class="pill">EN: ${escapeHtml(c.name_en || translateCategoryAuto(c.name_it, 'en'))}</span>
+      <span class="pill">ES: ${escapeHtml(c.name_es || translateCategoryAuto(c.name_it, 'es'))}</span>
+    </div>
+  </div>`).join('');
+}
+
+async function saveNewCategory(){
+  const input = document.getElementById('newCategoryName');
+  const nameIt = input?.value.trim();
+
+  if(!nameIt){
+    showStatus('<strong>Errore:</strong> scrivi il nome italiano della nuova categoria.', 'error');
+    return;
+  }
+
+  const full = DATA.categoriesFull || [];
+  const id = slugify(nameIt);
+  const maxOrder = full.reduce((max, c) => Math.max(max, Number(c.sort_order || 0)), 0);
+
+  const category = {
+    id,
+    name_it: nameIt,
+    name_en: translateCategoryAuto(nameIt, 'en'),
+    name_es: translateCategoryAuto(nameIt, 'es'),
+    sort_order: maxOrder + 1,
+    active: true
+  };
+
+  try{
+    await dpzSaveCategory(category);
+    if(input) input.value = '';
+    await reloadFromSupabase();
+
+    const select = document.getElementById('itemCategory');
+    if(select) select.value = id;
+
+    showStatus(`<strong>Categoria creata:</strong> ${escapeHtml(nameIt)}<br>Traduzioni automatiche: EN “${escapeHtml(category.name_en)}”, ES “${escapeHtml(category.name_es)}”.`);
+  }catch(e){
+    showStatus(`<strong>Errore creazione categoria:</strong><br>${escapeHtml(e.message || String(e))}`, 'error');
+  }
+}
+
+
 function renderAdminList(){
   const q = (document.getElementById('adminSearch')?.value || '').toLowerCase();
   const list = (DATA.items || []).filter(i => [i.name, i.name_en, i.name_es, i.category].join(' ').toLowerCase().includes(q));
@@ -148,7 +499,10 @@ function renderAdminList(){
 }
 
 function renderForm(item={}){
-  document.getElementById('formTitle').textContent = item.id ? 'Modifica piatto' : 'Nuovo piatto';
+  const isEdit = !!item.id;
+  document.getElementById('formTitle').textContent = isEdit ? 'Modifica piatto' : 'Aggiungi nuovo piatto';
+  const saveBtn = document.getElementById('saveItemButton');
+  if(saveBtn) saveBtn.textContent = isEdit ? 'Salva modifiche' : 'Crea nuovo piatto';
 
   document.getElementById('itemName').value = item.name_it || item.name || '';
   document.getElementById('itemNameEn').value = item.name_en || '';
@@ -201,6 +555,9 @@ function newItem(){
     allergens: [],
     sort_order: (DATA.items || []).length + 1
   });
+  showStatus('<strong>Nuovo piatto pronto.</strong> Compila nome, categoria, prezzo, ingredienti/allergeni e premi <b>Crea nuovo piatto</b>.');
+  const nameInput = document.getElementById('itemName');
+  if(nameInput) nameInput.focus();
 }
 
 function slugify(s){
@@ -218,9 +575,13 @@ function categoryNameFromSelection(value){
 }
 
 function buildItemFromForm(){
+  autoFillTranslations(false);
+
   const allergens = [...document.querySelectorAll('#allergenChecks input:checked')].map(x => Number(x.value));
   const categoryValue = document.getElementById('itemCategory').value;
   const nameIt = document.getElementById('itemName').value.trim();
+  const descriptionIt = document.getElementById('itemDescription').value.trim();
+  const ingredientsIt = document.getElementById('itemIngredients').value.trim();
 
   const existing = currentId ? DATA.items.find(i => i.id === currentId) : null;
 
@@ -230,17 +591,17 @@ function buildItemFromForm(){
     category: categoryNameFromSelection(categoryValue),
     name: nameIt,
     name_it: nameIt,
-    name_en: document.getElementById('itemNameEn').value.trim(),
-    name_es: document.getElementById('itemNameEs').value.trim(),
+    name_en: document.getElementById('itemNameEn').value.trim() || smartTranslateText(nameIt, 'en', 'name'),
+    name_es: document.getElementById('itemNameEs').value.trim() || smartTranslateText(nameIt, 'es', 'name'),
     price: document.getElementById('itemPrice').value.trim(),
-    description: document.getElementById('itemDescription').value.trim(),
-    description_it: document.getElementById('itemDescription').value.trim(),
-    description_en: document.getElementById('itemDescriptionEn').value.trim(),
-    description_es: document.getElementById('itemDescriptionEs').value.trim(),
-    ingredients: document.getElementById('itemIngredients').value.trim(),
-    ingredients_it: document.getElementById('itemIngredients').value.trim(),
-    ingredients_en: document.getElementById('itemIngredientsEn').value.trim(),
-    ingredients_es: document.getElementById('itemIngredientsEs').value.trim(),
+    description: descriptionIt,
+    description_it: descriptionIt,
+    description_en: document.getElementById('itemDescriptionEn').value.trim() || smartTranslateText(descriptionIt, 'en', 'text'),
+    description_es: document.getElementById('itemDescriptionEs').value.trim() || smartTranslateText(descriptionIt, 'es', 'text'),
+    ingredients: ingredientsIt,
+    ingredients_it: ingredientsIt,
+    ingredients_en: document.getElementById('itemIngredientsEn').value.trim() || smartTranslateText(ingredientsIt, 'en', 'text'),
+    ingredients_es: document.getElementById('itemIngredientsEs').value.trim() || smartTranslateText(ingredientsIt, 'es', 'text'),
     image: document.getElementById('itemImage').value.trim(),
     available: document.getElementById('itemAvailable').checked,
     available_today: document.getElementById('itemToday').checked,
@@ -253,6 +614,7 @@ function buildItemFromForm(){
 }
 
 async function saveItem(){
+  const isNewItem = !currentId;
   const item = buildItemFromForm();
 
   if(!item.name){
@@ -268,7 +630,7 @@ async function saveItem(){
     const fresh = DATA.items.find(i => i.id === item.id);
     if(fresh) renderForm(fresh);
 
-    showStatus(`<strong>Piatto salvato online su Supabase:</strong> ${escapeHtml(item.name)}`);
+    showStatus(`<strong>${isNewItem ? 'Nuovo piatto creato' : 'Piatto aggiornato'} online su Supabase:</strong> ${escapeHtml(item.name)}`);
   }catch(e){
     showStatus(
       `<strong>Errore salvataggio piatto:</strong><br>${escapeHtml(e.message || String(e))}<br><br>

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if(grid){
       grid.innerHTML = featured.map(i => `
         <a class="card feature-card" href="menu.html" aria-label="${t('openMenu')}: ${itemLabel(i, 'name')}">
-          <img src="${i.image}" alt="${itemLabel(i, 'name')}" loading="lazy">
+          <img src="${i.image}" alt="${itemLabel(i, 'name')}" loading="lazy" onerror="this.closest('.feature-card').classList.add('no-photo'); this.remove();">
           <div class="content">
             <div class="eyebrow">${categoryLabel(i.category)}</div>
             <h3>${itemLabel(i, 'name')}</h3>

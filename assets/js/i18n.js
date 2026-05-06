@@ -9,7 +9,8 @@ const I18N = {
       navMenu: 'Menù',
       navRestaurant: 'Ristorante',
       navBanquets: 'Banchetti',
-      navCantina: 'Cantina',
+      Cantina: 'Cantina',
+      navcantina: 'Cantina',
       navGallery: 'Galleria',
       navBook: 'Prenota',
       heroEyebrow: 'Ristorante • Pizzeria • Cucina di Mare',
@@ -92,7 +93,8 @@ const I18N = {
       navMenu: 'Menu',
       navRestaurant: 'Restaurant',
       navBanquets: 'Banquets',
-      navCantina: 'Wine & Drinks',
+      Cantina: 'Cantina',
+      navcantina: 'Cantina',
       navGallery: 'Gallery',
       navBook: 'Book',
       heroEyebrow: 'Restaurant • Pizzeria • Seafood Cuisine',
@@ -175,7 +177,8 @@ const I18N = {
       navMenu: 'Menú',
       navRestaurant: 'Restaurante',
       navBanquets: 'Banquetes',
-      navCantina: 'Bodega y bebidas',
+      Cantina: 'Cantina',
+      navcantina: 'Cantina',
       navGallery: 'Galería',
       navBook: 'Reservar',
       heroEyebrow: 'Restaurante • Pizzería • Cocina de mar',
@@ -261,12 +264,15 @@ const CATEGORY_TRANSLATIONS = {
     'Pizze - Le più richieste': 'Pizzas - Most requested',
     'Pizze - Specialità': 'Specialty pizzas',
     'Pizze - Classiche': 'Classic pizzas',
+    'Pizze - Bianche': 'White pizzas',
     'Calzoni': 'Calzones',
     'Rosticceria': 'Fried snacks',
     'Menù speciali': 'Special menus',
     'Dessert': 'Desserts',
     'Bevande': 'Drinks',
-    'Vini': 'Wines'
+    'Vini': 'Wines',
+    'Birre': 'Beers',
+    'Amari e Distillati': 'Digestifs & spirits'
   },
   es: {
     'Antipasti': 'Entrantes',
@@ -275,12 +281,15 @@ const CATEGORY_TRANSLATIONS = {
     'Pizze - Le più richieste': 'Pizzas - Las más pedidas',
     'Pizze - Specialità': 'Pizzas especiales',
     'Pizze - Classiche': 'Pizzas clásicas',
+    'Pizze - Bianche': 'Pizzas blancas',
     'Calzoni': 'Calzones',
     'Rosticceria': 'Fritos y aperitivos',
     'Menù speciali': 'Menús especiales',
     'Dessert': 'Postres',
     'Bevande': 'Bebidas',
-    'Vini': 'Vinos'
+    'Vini': 'Vinos',
+    'Birre': 'Cervezas',
+    'Amari e Distillati': 'Amargos y destilados'
   }
 };
 
@@ -461,6 +470,15 @@ function translateStaticPage(){
 function categoryLabel(category){
   const lang = getLang();
   if(lang === 'it') return category;
+
+  // Per le categorie create dal gestore su Supabase usa prima le traduzioni salvate nel database.
+  const full = window.DPZ_CATEGORIES_FULL || [];
+  const row = full.find(c => c.name_it === category || c.id === category);
+  if(row){
+    const direct = row[`name_${lang}`];
+    if(direct) return direct;
+  }
+
   return CATEGORY_TRANSLATIONS[lang]?.[category] || category;
 }
 function itemLabel(item, field){

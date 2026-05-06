@@ -180,6 +180,25 @@ async function dpzSaveSettings(settings){
   if(error) throw error;
 }
 
+
+async function dpzSaveCategory(category){
+  const client = dpzSupabaseClient();
+  if(!client) throw new Error('Supabase non configurato');
+
+  const row = {
+    id: category.id,
+    name_it: category.name_it || '',
+    name_en: category.name_en || '',
+    name_es: category.name_es || '',
+    sort_order: category.sort_order ?? 999,
+    active: category.active !== false,
+    updated_at: new Date().toISOString()
+  };
+
+  const { error } = await client.from('categories').upsert(row, { onConflict: 'id' });
+  if(error) throw error;
+}
+
 async function dpzSaveMenuItem(item){
   const client = dpzSupabaseClient();
   if(!client) throw new Error('Supabase non configurato');

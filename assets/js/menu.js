@@ -1,4 +1,13 @@
 
+function dpzImageFallback(label='Duepuntozero'){
+  return `<div class="image-fallback">${label}</div>`;
+}
+function dpzImg(src, alt, cls=''){
+  if(!src) return dpzImageFallback('Foto non inserita');
+  return `<img src="${src}" alt="${alt}" loading="lazy" class="${cls}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'image-fallback',textContent:'Foto non disponibile'}))">`;
+}
+
+
 let DATA;
 let activeCategory = 'Tutto';
 let query = '';
@@ -135,7 +144,7 @@ function renderItem(it) {
   const translatedName = itemLabel(it, 'name');
   const translatedDesc = itemLabel(it, 'description') || itemLabel(it, 'ingredients');
 
-  const img = it.image ? `<img src="${it.image}" alt="${translatedName}" loading="lazy">` : `<span>Duepuntozero</span>`;
+  const img = dpzImg(it.image, translatedName);
   const allergens = (it.allergens || []).map(id => `
     <button class="allergen-chip" title="${allergenLabel(DATA, id)}" onclick="event.stopPropagation(); openItem('${it.id}')">${id}</button>
   `).join('');
@@ -173,9 +182,7 @@ function openItem(id, options = {}) {
   const translatedDescription = itemLabel(it, 'description');
   const translatedIngredients = itemLabel(it, 'ingredients');
 
-  const img = it.image
-    ? `<img src="${it.image}" alt="${translatedName}">`
-    : `<div class="empty-photo"><div><strong>Duepuntozero</strong><br>${t('photoMissing')}</div></div>`;
+  const img = it.image ? dpzImg(it.image, translatedName) : `<div class=\"empty-photo\"><div><strong>Duepuntozero</strong><br>${t('photoMissing')}</div></div>`;
 
   const allergenList = (it.allergens || []).length
     ? it.allergens.map(id => `<div class="allergen-line"><b class="gold">${id}</b> — ${allergenLabel(DATA, id)}</div>`).join('')
