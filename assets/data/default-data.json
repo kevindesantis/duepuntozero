@@ -1,0 +1,873 @@
+{
+  "settings": {
+    "restaurantName": "Duepuntozero",
+    "subtitle": "Ristorante • Pizzeria • Cucina di Mare",
+    "phone": "392 873 6295",
+    "whatsapp": "393928736295",
+    "address": "Sellia Marina",
+    "menuUrl": "https://www.duepuntozero.it/menu",
+    "freshFishToday": true,
+    "tastingMenuActive": true,
+    "giroPizzaActive": true,
+    "babyMenuActive": true,
+    "bannerText": "Ingredienti freschi, cucina espressa e forno a legna.",
+    "openingHours": "Aperti a cena. Pranzo e banchetti su prenotazione.",
+    "brand": "Duepuntozero"
+  },
+  "allergens": [
+    {
+      "id": 1,
+      "name": "Cereali contenenti glutine",
+      "short": "Cereali"
+    },
+    {
+      "id": 2,
+      "name": "Crostacei",
+      "short": "Crostacei"
+    },
+    {
+      "id": 3,
+      "name": "Uova",
+      "short": "Uova"
+    },
+    {
+      "id": 4,
+      "name": "Pesce",
+      "short": "Pesce"
+    },
+    {
+      "id": 5,
+      "name": "Arachidi",
+      "short": "Arachidi"
+    },
+    {
+      "id": 6,
+      "name": "Soia",
+      "short": "Soia"
+    },
+    {
+      "id": 7,
+      "name": "Latte e derivati",
+      "short": "Latte"
+    },
+    {
+      "id": 8,
+      "name": "Frutta a guscio",
+      "short": "Frutta a guscio"
+    },
+    {
+      "id": 9,
+      "name": "Sedano",
+      "short": "Sedano"
+    },
+    {
+      "id": 10,
+      "name": "Senape",
+      "short": "Senape"
+    },
+    {
+      "id": 11,
+      "name": "Semi di sesamo",
+      "short": "Sesamo"
+    },
+    {
+      "id": 12,
+      "name": "Anidride solforosa e solfiti",
+      "short": "Solfiti"
+    },
+    {
+      "id": 13,
+      "name": "Lupini",
+      "short": "Lupini"
+    },
+    {
+      "id": 14,
+      "name": "Molluschi",
+      "short": "Molluschi"
+    }
+  ],
+  "categories": [
+    "Antipasti",
+    "Primi",
+    "Secondi",
+    "Pizze - Le più richieste",
+    "Pizze - Specialità",
+    "Pizze - Classiche",
+    "Calzoni",
+    "Rosticceria",
+    "Menù speciali",
+    "Dessert",
+    "Bevande",
+    "Vini"
+  ],
+  "items": [
+    {
+      "id": "antipasto-mare",
+      "category": "Antipasti",
+      "name": "Antipasto di Mare",
+      "price": "17",
+      "description": "Degustazione di mare della casa, ideale per iniziare il percorso Duepuntozero.",
+      "ingredients": "Selezione mista di preparazioni di mare, secondo disponibilità giornaliera.",
+      "allergens": [
+        1,
+        2,
+        4,
+        9,
+        14
+      ],
+      "image": "assets/img/antipasto_mare.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "insalata-mare",
+      "category": "Antipasti",
+      "name": "Insalata di Mare",
+      "price": "14",
+      "description": "Insalata di mare fresca e leggera.",
+      "ingredients": "Misto mare, olio evo, prezzemolo, limone.",
+      "allergens": [
+        14
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "pepata-cozze",
+      "category": "Antipasti",
+      "name": "Pepata di Cozze",
+      "price": "11",
+      "description": "Cozze in guazzetto, profumate e servite calde.",
+      "ingredients": "Cozze, pepe, prezzemolo, fondo di cottura.",
+      "allergens": [
+        14
+      ],
+      "image": "assets/img/pepata_cozze.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "zuppetta-mare",
+      "category": "Antipasti",
+      "name": "Zuppetta di Mare",
+      "price": "13",
+      "description": "Zuppetta calda di mare con crostini.",
+      "ingredients": "Misto mare, pomodoro, crostini, olio evo.",
+      "allergens": [
+        2,
+        4,
+        9,
+        14
+      ],
+      "image": "assets/img/zuppetta_mare.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "ostriche-fasolari",
+      "category": "Antipasti",
+      "name": "Ostriche & Fasolari",
+      "price": "su richiesta",
+      "description": "Selezione di crudi freschissimi disponibile su richiesta.",
+      "ingredients": "Ostriche, fasolari, limone, ghiaccio.",
+      "allergens": [
+        14
+      ],
+      "image": "assets/img/ostriche_fasolari.jpg",
+      "available": true,
+      "available_today": false,
+      "fresh_fish": true,
+      "on_request": true,
+      "featured": true
+    },
+    {
+      "id": "polpo-griglia",
+      "name": "Polpo alla Griglia",
+      "category": "Antipasti",
+      "description": "Polpo alla griglia con cialde croccanti di patate.",
+      "ingredients": "Polpo, patate, olio evo, prezzemolo.",
+      "price": "16",
+      "allergens": [
+        14
+      ],
+      "image": "assets/img/polpo_griglia.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "paccheri-ricciola",
+      "category": "Primi",
+      "name": "Pacchero con Ricciola Scottata e Pomodorini Rossi",
+      "price": "17",
+      "description": "Paccheri con pesce e pomodorini, piatto deciso e mediterraneo.",
+      "ingredients": "Paccheri, ricciola, pomodorini rossi, prezzemolo.",
+      "allergens": [
+        1,
+        4
+      ],
+      "image": "assets/img/paccheri_ricciola.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "tagliolini-vongole",
+      "category": "Primi",
+      "name": "Tagliolini alle Vongole",
+      "price": "17",
+      "description": "Primo classico di mare con vongole.",
+      "ingredients": "Tagliolini, vongole, olio evo, aglio, prezzemolo.",
+      "allergens": [
+        1,
+        14
+      ],
+      "image": "assets/img/tagliolini_vongole.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "ravioli-cernia",
+      "category": "Primi",
+      "name": "Ravioli di Cernia con Bisque di Crostacei",
+      "price": "17",
+      "description": "Ravioli ripieni serviti con bisque intensa ai crostacei.",
+      "ingredients": "Ravioli, cernia, bisque di crostacei.",
+      "allergens": [
+        1,
+        2,
+        3,
+        4,
+        7
+      ],
+      "image": "assets/img/ravioli_cernia.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "fusilloni-polpo",
+      "category": "Primi",
+      "name": "Fusilloni al Ragù di Polpo",
+      "price": "16",
+      "description": "Fusilloni freschi con ragù di polpo.",
+      "ingredients": "Fusilloni, polpo, pomodoro, prezzemolo.",
+      "allergens": [
+        1,
+        14
+      ],
+      "image": "assets/img/fusillone_polpo.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "tagliolini-limone-gambero",
+      "category": "Primi",
+      "name": "Tagliolini al Limone con Gambero Rosso",
+      "price": "16",
+      "description": "Primo cremoso e profumato con limone e gambero rosso.",
+      "ingredients": "Tagliolini, limone, gambero rosso, crema.",
+      "allergens": [
+        1,
+        2,
+        7
+      ],
+      "image": "assets/img/tagliolini_limone_gambero.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "frittura-paranza",
+      "category": "Secondi",
+      "name": "Frittura di Paranza",
+      "price": "13",
+      "description": "Frittura di pesce secondo disponibilità.",
+      "ingredients": "Pesce di paranza, farina, olio di frittura.",
+      "allergens": [
+        1,
+        4
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "frittura-calamari",
+      "category": "Secondi",
+      "name": "Frittura di Calamari",
+      "price": "17",
+      "description": "Calamari fritti croccanti.",
+      "ingredients": "Calamari, farina, olio di frittura.",
+      "allergens": [
+        1,
+        14
+      ],
+      "image": "assets/img/frittura_calamari.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "frittura-completa",
+      "category": "Secondi",
+      "name": "Frittura Completa Mista",
+      "price": "21",
+      "description": "Frittura mista completa con calamari, gamberi e pesce.",
+      "ingredients": "Calamari, gamberi, pesce misto, farina.",
+      "allergens": [
+        1,
+        2,
+        4,
+        14
+      ],
+      "image": "assets/img/frittura_completa.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "tagliata-tonno",
+      "category": "Secondi",
+      "name": "Tagliata di Tonno",
+      "price": "16",
+      "description": "Tonno scottato, servito con rucola e condimento.",
+      "ingredients": "Tonno, rucola, olio evo, riduzione.",
+      "allergens": [
+        4
+      ],
+      "image": "assets/img/tagliata_tonno.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "grigliata-pesce",
+      "category": "Secondi",
+      "name": "Grigliata di Pesce",
+      "price": "17",
+      "description": "Grigliata di mare secondo pescato e disponibilità.",
+      "ingredients": "Pesce misto, crostacei, molluschi.",
+      "allergens": [
+        2,
+        4,
+        14
+      ],
+      "image": "assets/img/grigliata_mare.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "margherita",
+      "category": "Pizze - Le più richieste",
+      "name": "Margherita",
+      "price": "6",
+      "description": "La classica Duepuntozero.",
+      "ingredients": "Pomodoro, fior di latte, olio evo, basilico.",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "diavola",
+      "category": "Pizze - Le più richieste",
+      "name": "Diavola",
+      "price": "6,5",
+      "description": "Pizza con salame piccante.",
+      "ingredients": "Pomodoro, fior di latte, salame piccante, olio evo.",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "pugliese",
+      "category": "Pizze - Le più richieste",
+      "name": "Pugliese",
+      "price": "7,5",
+      "description": "Pizza con tonno e cipolla.",
+      "ingredients": "Pomodoro, fior di latte, tonno, cipolla, olio evo.",
+      "allergens": [
+        1,
+        4,
+        7
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "bufala",
+      "category": "Pizze - Le più richieste",
+      "name": "Bufala",
+      "price": "10",
+      "description": "Pizza con mozzarella di bufala.",
+      "ingredients": "Pomodoro, mozzarella di bufala, olio evo, basilico.",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "assets/img/pizza_bufala.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "polipetta-20",
+      "category": "Pizze - Specialità",
+      "name": "Polipetta 2.0",
+      "price": "14",
+      "description": "Specialità Duepuntozero con polipo preparato dallo chef.",
+      "ingredients": "Fior di latte, polipo, cipolla caramellata, prezzemolo, olio evo.",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "taylor",
+      "category": "Pizze - Specialità",
+      "name": "Taylor",
+      "price": "12",
+      "description": "Specialità con bresaola e salsa yogurt.",
+      "ingredients": "Fior di latte, pomodorini gialli semidried, bresaola punta d'anca, salsa yogurt.",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "assets/img/pizza_taylor.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "bebo",
+      "category": "Pizze - Specialità",
+      "name": "Bebo",
+      "price": "12",
+      "description": "Pizza con crema di pistacchio e mortadella.",
+      "ingredients": "Fior di latte, crema di pistacchio, mortadella, granella di pistacchio, olio evo.",
+      "allergens": [
+        1,
+        7,
+        8
+      ],
+      "image": "assets/img/pizza_bebo.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "malibu",
+      "category": "Pizze - Specialità",
+      "name": "Malibù",
+      "price": "12",
+      "description": "Pizza fresca con bufala, crudo e pistacchio.",
+      "ingredients": "Pomodoro, bufala fresca, crudo, granella di pistacchio, olio evo.",
+      "allergens": [
+        1,
+        7,
+        8
+      ],
+      "image": "assets/img/pizza_malibu.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "diciassette",
+      "category": "Pizze - Specialità",
+      "name": "Diciassette",
+      "price": "10",
+      "description": "Pizza speciale Duepuntozero.",
+      "ingredients": "Fior di latte, zucca, pancetta, grana, basilico, olio evo.",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "assets/img/pizza_diciassette.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "babylon",
+      "category": "Pizze - Specialità",
+      "name": "Babylon",
+      "price": "10",
+      "description": "Pizza fredda con crudo e scaglie di grana.",
+      "ingredients": "Focaccia, rucola, pomodorini, crudo, fior di latte fresco, scaglie di grana, olio evo.",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "assets/img/pizza_babylon.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "contadina",
+      "name": "Contadina",
+      "category": "Pizze - Specialità",
+      "description": "Pizza bianca con melanzane e zucchine fritte.",
+      "ingredients": "Fior di latte, melanzane fritte, zucchine fritte, olio evo, basilico.",
+      "price": "8",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "assets/img/pizza_contadina.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "focaccia",
+      "category": "Pizze - Classiche",
+      "name": "Focaccia",
+      "price": "4",
+      "description": "Focaccia semplice.",
+      "ingredients": "Sale, olio evo, origano.",
+      "allergens": [
+        1
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "marinara",
+      "category": "Pizze - Classiche",
+      "name": "Marinara",
+      "price": "5",
+      "description": "Pizza marinara tradizionale.",
+      "ingredients": "Pomodoro, aglio, olio evo, basilico.",
+      "allergens": [
+        1
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "napoli",
+      "category": "Pizze - Classiche",
+      "name": "Napoli",
+      "price": "6,5",
+      "description": "Classica con acciughe.",
+      "ingredients": "Pomodoro, fior di latte, acciughe, basilico.",
+      "allergens": [
+        1,
+        4,
+        7
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "capricciosa",
+      "category": "Pizze - Classiche",
+      "name": "Capricciosa",
+      "price": "10",
+      "description": "Classica ricca.",
+      "ingredients": "Pomodoro, fior di latte, salame, olive, carciofi, funghi.",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "calabrese",
+      "name": "Calabrese",
+      "category": "Pizze - Classiche",
+      "description": "Pizza dal gusto deciso con salame e olive nere.",
+      "ingredients": "Pomodoro, fior di latte, salame, olive nere, basilico.",
+      "price": "7,5",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "assets/img/pizza_calabrese.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "calzone-zeta",
+      "name": "Calzone Zeta",
+      "category": "Calzoni",
+      "description": "Calzone farcito con crudo e grana a scaglie.",
+      "ingredients": "Fior di latte, crudo, grana a scaglie.",
+      "price": "10",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "assets/img/calzone_zeta.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "patatine",
+      "category": "Rosticceria",
+      "name": "Patatine",
+      "price": "2,5",
+      "description": "Porzione di patatine fritte.",
+      "ingredients": "Patate, olio di frittura.",
+      "allergens": [
+        2
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "crocche",
+      "category": "Rosticceria",
+      "name": "Crocchè di Patate (4pz)",
+      "price": "4",
+      "description": "Crocchè di patate.",
+      "ingredients": "Patate, panatura, formaggio.",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "menu-degustazione",
+      "category": "Menù speciali",
+      "name": "Menù Degustazione",
+      "price": "35",
+      "description": "Percorso completo pensato per vivere l'esperienza Duepuntozero.",
+      "ingredients": "Antipasto, primo, secondo, contorno, bevande. Dolce, sorbetti e amari esclusi.",
+      "allergens": [],
+      "image": "assets/img/banchetti_mare.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": true,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "giro-pizza-16",
+      "category": "Menù speciali",
+      "name": "Giro Pizza",
+      "price": "da 16 a persona",
+      "description": "Formula giro pizza con diverse combinazioni.",
+      "ingredients": "Patatine, rosticceria, pizze a giro, acqua, bevande, vino/birra alla spina secondo formula.",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "assets/img/giro_pizza.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "menu-baby",
+      "category": "Menù speciali",
+      "name": "Menù Baby",
+      "price": "",
+      "description": "Menù dedicato ai più piccoli.",
+      "ingredients": "Cotto e mozzarella, pennette al pomodoro, cotoletta e patatine.",
+      "allergens": [
+        1,
+        7
+      ],
+      "image": "assets/img/menu_baby.jpg",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": true
+    },
+    {
+      "id": "sorbetto-limone",
+      "category": "Dessert",
+      "name": "Sorbetto al Limone",
+      "price": "3",
+      "description": "Sorbetto al limone.",
+      "ingredients": "Sorbetto al limone.",
+      "allergens": [
+        3
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "dessert-giorno",
+      "category": "Dessert",
+      "name": "Dessert su disponibilità giornaliera",
+      "price": "5",
+      "description": "Dessert del giorno.",
+      "ingredients": "Chiedere al personale.",
+      "allergens": [],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "coca-cola",
+      "category": "Bevande",
+      "name": "Coca Cola 33cl vetro",
+      "price": "2,5",
+      "description": "Bibita in vetro.",
+      "ingredients": "",
+      "allergens": [],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "acqua",
+      "category": "Bevande",
+      "name": "Acqua minerale 0,75 cl",
+      "price": "2,5",
+      "description": "Acqua minerale.",
+      "ingredients": "",
+      "allergens": [],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    },
+    {
+      "id": "birra-media",
+      "category": "Bevande",
+      "name": "Birra media 40cl",
+      "price": "5",
+      "description": "Birra alla spina media.",
+      "ingredients": "",
+      "allergens": [
+        1
+      ],
+      "image": "",
+      "available": true,
+      "available_today": true,
+      "fresh_fish": false,
+      "on_request": false,
+      "featured": false
+    }
+  ]
+}
