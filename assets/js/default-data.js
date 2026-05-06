@@ -5,7 +5,7 @@ window.DEFAULT_MENU_DATA = {
     "phone": "392 873 6295",
     "whatsapp": "393928736295",
     "address": "Sellia Marina",
-    "menuUrl": "https://www.dpz17.it/menu",
+    "menuUrl": "https://www.dpz17.it/menu.html",
     "freshFishToday": true,
     "tastingMenuActive": true,
     "giroPizzaActive": true,

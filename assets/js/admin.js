@@ -272,26 +272,9 @@ function smartTranslateText(text, lang, mode='text'){
 }
 
 function autoFillTranslations(force=false){
-  const fields = [
-    ['itemName', 'itemNameEn', 'itemNameEs', 'name'],
-    ['itemDescription', 'itemDescriptionEn', 'itemDescriptionEs', 'text'],
-    ['itemIngredients', 'itemIngredientsEn', 'itemIngredientsEs', 'text']
-  ];
-
-  fields.forEach(([itId, enId, esId, mode]) => {
-    const it = document.getElementById(itId);
-    const en = document.getElementById(enId);
-    const es = document.getElementById(esId);
-    if(!it || !en || !es) return;
-
-    const source = it.value.trim();
-    if(!source) return;
-
-    if(force || !en.value.trim()) en.value = smartTranslateText(source, 'en', mode);
-    if(force || !es.value.trim()) es.value = smartTranslateText(source, 'es', mode);
-  });
-
-  if(force) showStatus('<strong>Traduzione automatica compilata.</strong> Puoi comunque correggere manualmente inglese/spagnolo prima di salvare.');
+  // Versione v19: non ci sono più campi EN/ES visibili.
+  // Le traduzioni vengono generate automaticamente al salvataggio.
+  if(force) showStatus('<strong>Traduzione automatica attiva.</strong> Ora devi scrivere solo in italiano.');
 }
 
 function translateCategoryAuto(nameIt, lang){
@@ -505,8 +488,6 @@ function renderForm(item={}){
   if(saveBtn) saveBtn.textContent = isEdit ? 'Salva modifiche' : 'Crea nuovo piatto';
 
   document.getElementById('itemName').value = item.name_it || item.name || '';
-  document.getElementById('itemNameEn').value = item.name_en || '';
-  document.getElementById('itemNameEs').value = item.name_es || '';
 
   const categoriesFull = DATA.categoriesFull || window.DPZ_CATEGORIES_FULL || [];
   document.getElementById('itemCategory').innerHTML = categoriesFull.map(c =>
@@ -516,12 +497,8 @@ function renderForm(item={}){
   document.getElementById('itemPrice').value = item.price || '';
 
   document.getElementById('itemDescription').value = item.description_it || item.description || '';
-  document.getElementById('itemDescriptionEn').value = item.description_en || '';
-  document.getElementById('itemDescriptionEs').value = item.description_es || '';
 
   document.getElementById('itemIngredients').value = item.ingredients_it || item.ingredients || '';
-  document.getElementById('itemIngredientsEn').value = item.ingredients_en || '';
-  document.getElementById('itemIngredientsEs').value = item.ingredients_es || '';
 
   document.getElementById('itemImage').value = item.image || '';
   document.getElementById('itemImageFile').value = '';
@@ -591,17 +568,17 @@ function buildItemFromForm(){
     category: categoryNameFromSelection(categoryValue),
     name: nameIt,
     name_it: nameIt,
-    name_en: document.getElementById('itemNameEn').value.trim() || smartTranslateText(nameIt, 'en', 'name'),
-    name_es: document.getElementById('itemNameEs').value.trim() || smartTranslateText(nameIt, 'es', 'name'),
+    name_en: smartTranslateText(nameIt, 'en', 'name'),
+    name_es: smartTranslateText(nameIt, 'es', 'name'),
     price: document.getElementById('itemPrice').value.trim(),
     description: descriptionIt,
     description_it: descriptionIt,
-    description_en: document.getElementById('itemDescriptionEn').value.trim() || smartTranslateText(descriptionIt, 'en', 'text'),
-    description_es: document.getElementById('itemDescriptionEs').value.trim() || smartTranslateText(descriptionIt, 'es', 'text'),
+    description_en: smartTranslateText(descriptionIt, 'en', 'text'),
+    description_es: smartTranslateText(descriptionIt, 'es', 'text'),
     ingredients: ingredientsIt,
     ingredients_it: ingredientsIt,
-    ingredients_en: document.getElementById('itemIngredientsEn').value.trim() || smartTranslateText(ingredientsIt, 'en', 'text'),
-    ingredients_es: document.getElementById('itemIngredientsEs').value.trim() || smartTranslateText(ingredientsIt, 'es', 'text'),
+    ingredients_en: smartTranslateText(ingredientsIt, 'en', 'text'),
+    ingredients_es: smartTranslateText(ingredientsIt, 'es', 'text'),
     image: document.getElementById('itemImage').value.trim(),
     available: document.getElementById('itemAvailable').checked,
     available_today: document.getElementById('itemToday').checked,
@@ -709,6 +686,14 @@ async function resetDemo(){
 function renderQR(){
   const el = document.getElementById('qrUrl');
   if(el) el.textContent = DATA.settings?.menuUrl || location.origin + location.pathname.replace('gestione-riservata.html','menu.html');
+}
+
+function fieldValue(id){
+  return document.getElementById(id)?.value?.trim() || '';
+}
+function setFieldValue(id, value){
+  const el = document.getElementById(id);
+  if(el) el.value = value || '';
 }
 
 function escapeHtml(str){
