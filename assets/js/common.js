@@ -1,5 +1,5 @@
 
-const STORAGE_KEY = 'duepuntozero_menu_demo_v2';
+const STORAGE_KEY = 'duepuntozero_menu_demo_v12';
 
 async function loadDefaultData(){
   // Aprendo il file HTML direttamente dal computer, alcuni browser bloccano fetch() sui file locali.
