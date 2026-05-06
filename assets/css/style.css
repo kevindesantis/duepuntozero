@@ -868,3 +868,10 @@ button{
   background:#2d1111;
   color:#ffdede;
 }
+
+
+/* --- V12 Cantina / Bevande --- */
+#cantina .feature-card img{ object-position:center; }
+@media (max-width:760px){
+  #cantina .feature-card{ min-height:240px; }
+}
